@@ -1,5 +1,3 @@
-from http import client
-import re
 import boto3
 from rest_framework import status
 from rest_framework.response import Response
