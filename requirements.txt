@@ -1,0 +1,5 @@
+django 
+djangorestframework
+boto3
+python-decouple
+pandas
