@@ -3,3 +3,4 @@ djangorestframework
 boto3
 python-decouple
 pandas
+pycryptodome
