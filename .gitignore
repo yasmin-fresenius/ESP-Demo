@@ -5,3 +5,7 @@
 /.vs
 /venv
 *.env
+/src/dsc_demo/dsc_demo/__pycache__
+
+/src/dsc_demo/s3_bucket/__pycache__
+/src/dsc_demo/s3_bucket/migrations/__pycache__

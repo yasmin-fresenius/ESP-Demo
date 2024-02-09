@@ -1,5 +1,3 @@
-import re
-from tkinter import E
 import boto3
 from rest_framework import status
 from rest_framework.response import Response
@@ -62,10 +60,7 @@ class S3BucketViewset(ModelViewSet):
 
             # Read the file from S3 into DataFrame
             df = pd.read_csv(self.client.get_object(Bucket=self.kwargs[self.lookup_field], Key=file)['Body'], delimiter=',')
-            # print(df.columns)
-            # print(df.head())
-            # for col in df.columns:
-            #     print(col,': ', df[col].dtype)
+            
 
             # Perform AES encryption/anonymization
             with open("key.pem", "rb") as f:
@@ -79,6 +74,7 @@ class S3BucketViewset(ModelViewSet):
                deidentify_type = 'anonymyzation'
 
             data_type = {x['Field']: x['Data Type'] for _, x in config_df.iterrows() if x['Deidentify (y/n)'] == 'y' }
+            
 
             if deidentify_type == 'anonymyzation': # Masking type
                 for col in df.columns:
